@@ -4,6 +4,7 @@ import About2 from "./About2";
 import About3 from "./About3";
 import About4 from "./About4";
 import About5 from "./About5";
+import About6 from "./About6";
 
 function About() {
   return (
@@ -13,6 +14,7 @@ function About() {
       <About3 />
       <About4 />
       <About5 />
+      <About6 />
     </div>
   );
 }
