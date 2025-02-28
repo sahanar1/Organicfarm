@@ -8,7 +8,7 @@ import Service from "./pages/service/Service";
 import Blog from "./pages/blogs/Blogs";
 import Shop from "./pages/shop/Shop";
 import Contact from "./pages/contact/Contact";
-
+import Shopsingle from "./pages/shop/Shopsingle";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -38,6 +38,7 @@ function App() {
               <Route path="/service" element={<Service />} />
               <Route path="/blogs" element={<Blog />} />
               <Route path="/shop" element={<Shop />} />
+              <Route path="/product/:productId" element={<Shopsingle />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           )}

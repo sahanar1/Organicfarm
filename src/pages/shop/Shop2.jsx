@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function App() {
+function Shop2() {
   const [page, setPage] = useState(1);
   const [sortOption, setSortOption] = useState('Default sorting');
+  const navigate = useNavigate();
   
   const categories = [
     { name: 'All', icon: '🍎🥦' },
@@ -27,6 +29,11 @@ function App() {
     { id: 10, name: 'Potatos', price: 30.00, image: '/api/placeholder/240/240', category: 'Fresh Vegetables' },
     { id: 11, name: 'Red Grapes', price: 100.00, image: '/api/placeholder/240/240', category: 'Fresh Fruits' }
   ];
+
+  // Function to handle product click
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
   
   return (
     <div className="container mx-auto px-4 py-8">
@@ -87,7 +94,11 @@ function App() {
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
-              <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div 
+                key={product.id} 
+                className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                onClick={() => handleProductClick(product.id)}
+              >
                 <div className="p-4 flex justify-center bg-gray-50">
                   <img 
                     src={product.image} 
@@ -98,7 +109,13 @@ function App() {
                 <div className="p-4 text-center">
                   <h3 className="font-medium text-lg mb-2">{product.name}</h3>
                   <p className="text-green-500 mb-4">₹ {product.price.toFixed(2)}</p>
-                  <button className="w-full py-2 px-4 bg-white text-pink-500 border border-pink-500 rounded hover:bg-pink-50 transition-colors">
+                  <button 
+                    className="w-full py-2 px-4 bg-white text-pink-500 border border-pink-500 rounded hover:bg-pink-50 transition-colors"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent triggering the product click
+                      // Add to cart logic here
+                    }}
+                  >
                     Add to Cart
                   </button>
                 </div>
@@ -132,4 +149,4 @@ function App() {
   );
 }
 
-export default App;
+export default Shop2;
