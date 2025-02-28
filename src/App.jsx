@@ -4,6 +4,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
+import Service from "./pages/service/Service";
+import Blog from "./pages/blogs/Blogs";
+import Shop from "./pages/shop/Shop";
+import Contact from "./pages/contact/Contact";
+
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -30,6 +35,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/service" element={<Service />} />
+              <Route path="/blogs" element={<Blog />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           )}
         </div>

@@ -30,7 +30,7 @@ const Navbar = () => {
             About
           </NavLink>
           <NavLink
-            to="/services"
+            to="/service"
             className="text-gray-400"
             style={({ isActive }) =>
               isActive ? { color: "black", fontWeight: "bolder" } : {}
